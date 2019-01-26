@@ -16,29 +16,163 @@ import numpy as np
 #%matplotlib inline
 
 
-# API's setup:
-
-#def twitter_setup():
-    # Authentication and access using keys:
-#    auth.set_access_token(access_token, access_token_secret)
- #   api = tweepy.API(auth,wait_on_rate_limit=True)
-    # Return API with authentication:
-  #  api = tweepy.API(auth)
-   # return api
-
-
-#nicht mehr aktiv: 'darksideofkek', 'ValdoreJavorsky', 'hetzegegenhetze',
-liste = ['Deutscher_17', 'Itschi1', 'Lepanto_', 'Luisa_Maletzki', 'kevin_hevin_21', 'gerlex', 'EldonNick', 'Wilhelm_Koerner', 'aka_Ganymed', 'phalanx_europa',
-         'ruhr_area51',  'Rosskar1',  '_enochwasright',  'Theodoretiker', 'realNEWZBLOG',  'McTabbish', 'supermampf',
-         'RMichael2000', 'kekdich', 'JustAnotherReco', 'AbdelMusuf', 'NicolasCarnot', 'enythen', 'BerlinerBaerRG', 'politoreality', 'Gefr_Molinarius', 'Chreuper',
-         'Jeb_Ident', 'asorent', 'trueY4K', 'michranspatz', 'MerkelFan666', 'TeutemanTuts', 'SeppDahte', 'LordZentrum', 'TheDefi4nt', 'HeiligeRevolte',
-         'Der_Schweizer2', 'Paganaer', 'vonosterhal', 'LangeRII', 'MilaSuperstar33', 'franziskam108', 'PepeBismarck', 'LudwigErhard2', 'Urleere', 'NorikNordlicht',
-         'koeterrasse', 'analogsubground', 'Morpheus_1984','Silgetown','mick_denis','LuetzowsJagd','Robert30521605','Metadiskurs1','DerNervenarzt','Rheinpfeil67',
-         'ChocolaRei', 'ald3rs0n', 'Fatima_Najar', 'VisithorQ', 'BerundoKun', 'Stefan_RW84', 'E_Fall_Planer', 'algo1988', 'daAlt30', 'Tiuri1983',
-         'dgsportler', 'Widerstand3', 'realPeterV', 'de_ewake', 'IdentitarianL', 'EdlervonBert', 'QubitusQ', 'ChrissoJacobsen', '1407jule', 'martinh84804324',
-         'johannburkard', 'RGLarp12', 'Johann_Weiler', 'AnonymforFredom', 'alphablut', 'MartinNeubaue10', 'er1k_w', 'Aufklrer1', 'Potentialwirbel', 'einsmannimmond',
-         'Kek_von_D', 'grimm_grimm1', 'Svenja012', 'KimmyBertsch', 'MalWieder_real', 'MaxPan21064515', 'DonElvetos', 'PaulAbr89089961', 'AlbertDenilzer', 'Muhamed_al_afre'    #100
-         ]
+liste = [
+'gergrubi',
+'klausmeier0104',
+'rantanplan1412',
+#'kekistani1',
+'evelix26',
+'hessenbursche',
+'JuttaMBrandt',
+'geli9001',
+'C_Sidorow',
+'godefroy99',
+'Gekko125',
+'WeLoveHaram',
+'fragichmich',
+'Oedoen1523AD',
+'leaks_nsu',
+'Segeltexter',
+'Gabelzaehler',
+'this_one_world',
+'Luicifer6',
+'verusoss1',
+'herr_helmut',
+'nunu_balloon',
+'WalkofLife66',
+'Dieter_Stein',
+'derKongoMueller',
+'lossorg',
+'winston_groovy',
+'neander777',
+'ThomasVerheugen',
+'Koppschuettla',
+'hohlraumsausen',
+'Cimbasi',
+'Steuerzahler01',
+'anrefi',
+'Sk4nd41',
+'hetzpetz',
+'Udai23517958',
+'OKnauer',
+'M_T_Franz',
+'DieBajuwaren',
+'demokratiedoc',
+'freddynasevoll',
+'Newsboy1899',
+'Leopoldinjo',
+'LSteinwandter',
+'vzuschauer',
+'lawracks',
+'Yorck_',
+'knaagi',
+'Andy_Sch16',
+'FreiesNetz88',
+'AndrewRoussak',
+'2018_AfDwaehlen',
+'Dieaak',
+'ainyrockstar',
+'fernetpunker',
+'krainde',
+'Rockopornero',
+'Kybeline',
+'HermannMaier23',
+'mywordsrmessage',
+'schottenhaml',
+'leopoldnikon',
+'heutesnow',
+'laurin15320',
+'OppressedFart',
+'DirkHafermann',
+'katorin_jou',
+'Msteinlin',
+'waszumelden',
+'wendt_joachim',
+'gegenUmvolkung',
+'peppermind',
+'Zaretten',
+'VPfafenrot',
+'euroztar',
+'twittschler',
+'_deus_lo_vult',
+'tschrammen',
+'Epithelgewebe',
+'DerLiuhvan',
+'SoBitte',
+'BarbaraKube',
+'rwschmidt1',
+'Twente_Chris',
+'SarraKowsky',
+'Ralf41996825',
+'FreavonWegen',
+'RiRotb',
+'dima973',
+'WolfHansen',
+'ossi1232',
+'Mo190311',
+'FriedrichsErbe',
+'KoppReport',
+'Schwaebli1',
+'Folienschnitzer',
+'gellis18',
+'nveritatis',
+'JuliaMertensJM',
+'Ich2ES',
+'mic_eff',
+'Franz_Ohse',
+'krokotasche',
+'DeplorableJp',
+'HagenSon_71',
+'DMittelhesse',
+'MattFK',
+'bruchhof66',
+'Anne_Zielisch',
+'dadeldi',
+'fepBWm',
+'FreeWorldOne',
+'jato122',
+'eckicgn',
+'kuechenbulle72',
+'schlusselszene',
+'PaulSchneider72',
+'LucaHuerlimann',
+'Regenbeobachter',
+'White_Haven',
+'xEasyx',
+'maxfcbayern1996',
+'eurogegner',
+'BestBidderGi',
+'DrThomasBruns',
+'Thueringen_',
+'UweSchulz4',
+'Boeses_Schaf',
+'merdeux_',
+'IllyrioM',
+'Jacobus_Liftus',
+'Der_Berzel',
+'KarlSchneider1',
+'Kaffee_Racer',
+'MagenheimE',
+'peterroger17',
+'AB_National',
+'gordon_deitrich',
+'kommentator1234',
+'Identitaere_B',
+'OneStepBayond',
+'dtpmaker',
+'Ey_Jackson',
+'Jack_Ewiehose',
+'timonisch',
+'tantegerd1',
+'AlteElster',
+'Torti_N',
+'Junta2Puschkin',
+'Berapaula1960',
+'KlausSchaper',
+'dimetrodon109',
+'mortalhope1',
+'myFavoriteKraut'
+]
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -46,111 +180,32 @@ auth.set_access_token(access_token, access_token_secret)
 extractor = tweepy.API(auth,wait_on_rate_limit = True)
 
 
-#for dudes in liste:
-#    print(dudes)
-#    test = extractor.lookup_users(screen_names=liste)
-#    print(test)
-
-#print("LENGTH:")
-#print(len(test))
-
-#data2 = pd.DataFrame(columns=['Tweets', 'len', 'ID', 'Date', 'Source', 'Likes', 'RT'])
-#df = pd.DataFrame({'A' : [np.nan]})
-
-zweiteliste=[]
-
-for x in liste:
-    try:
-        u=api.get_user(x)
-        print (u.screen_name)
-        zweiteliste.append(x)
-    except Exception:
-            pass
-
-
-
-
 #riesige for-schleife
-for dudes in zweiteliste:
-    #We create a tweet list as follows:
-    #tweets = extractor.user_timeline(screen_name="realDonaldTrump", count="10000")
-    tweets = extractor.user_timeline(screen_name =dudes, count="200")
+for dudes in liste:
+
+    tweets = extractor.user_timeline(screen_name = dudes, count="200", tweet_mode="extended")
     print("-----\n\n")
     print("USER: "+ dudes)
-    print("-----\n\n")
-    print("Number of tweets extracted: {}.\n".format(len(tweets)))
 
-    # We print the most recent 5 tweets:
-    print("5 recent tweets:\n")
-    for tweet in tweets[:5]:
-        print(tweet.text)
-        print()
+    print("-----\n\n")
 
     # We create a pandas dataframe as follows:
-    data = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
-
-    # We display the first 10 elements of the dataframe:
-    # display(data.head(10))
+    data = pd.DataFrame(data=[tweet.full_text for tweet in tweets], columns=['Tweets'])
 
     # We add relevant data:
-    data['len']  = np.array([len(tweet.text) for tweet in tweets])
+    data['len']  = np.array([len(tweet.full_text) for tweet in tweets])
     data['ID']   = np.array([tweet.id for tweet in tweets])
     data['Date'] = np.array([tweet.created_at for tweet in tweets])
     data['Source'] = np.array([tweet.source for tweet in tweets])
     data['Likes']  = np.array([tweet.favorite_count for tweet in tweets])
     data['RTs']    = np.array([tweet.retweet_count for tweet in tweets])
 
-    # Display of first 10 elements from dataframe:
-    # display(data.head(10))
-
-
-    # We extract the mean of lenghts:
-    mean = np.mean(data['len'])
-
-    # print("The lenght's average in tweets: {}".format(mean))
-
-
-    # We extract the tweet with more FAVs and more RTs:
-    fav_max = np.max(data['Likes'])
-    rt_max  = np.max(data['RTs'])
-
-    fav = data[data.Likes == fav_max].index[0]
-    rt  = data[data.RTs == rt_max].index[0]
-
-    # Max FAVs:
-    #print("The tweet with more likes is: \n{}".format(data['Tweets'][fav]))
-    # print("Number of likes: {}".format(fav_max))
-    # print("{} characters.\n".format(data['len'][fav]))
-
-    # Max RTs:
-    #print("The tweet with more retweets is: \n{}".format(data['Tweets'][rt]))
-    #print("Number of retweets: {}".format(rt_max))
-    #print("{} characters.\n".format(data['len'][rt]))
-
-    # We create time series for data:
-
-    tlen = pd.Series(data=data['len'].values, index=data['Date'])
-    tfav = pd.Series(data=data['Likes'].values, index=data['Date'])
-    tret = pd.Series(data=data['RTs'].values, index=data['Date'])
-
-    # Lenghts along time:
-    tlen.plot(figsize=(16,4), color='r');
-
-    # Likes vs retweets visualization:
-    tfav.plot(figsize=(16,4), label="Likes", legend=True)
-    tret.plot(figsize=(16,4), label="Retweets", legend=True);
 
     # We obtain all possible sources:
     sources = []
     for source in data['Source']:
         if source not in sources:
             sources.append(source)
-
-    # We print sources list:
-    #print("Creation of content sources:")
-    #for source in sources:
-    #    print("* {}".format(source))
-
 
     # We create a numpy vector mapped to labels:
     percent = np.zeros(len(sources))
@@ -163,12 +218,8 @@ for dudes in zweiteliste:
 
     percent /= 100
 
-    # Pie chart:
-    pie_chart = pd.Series(percent, index=sources, name='Sources')
-    pie_chart.plot.pie(fontsize=11, autopct='%.2f', figsize=(6, 6));
-
-
-    from textblob import TextBlob
+    #from textblob import TextBlob
+    from textblob_de import TextBlobDE as TextBlob
     import re
 
     def clean_tweet(tweet):
@@ -190,7 +241,6 @@ for dudes in zweiteliste:
     # We display the updated dataframe with the new column:
     display(data.head(10))
 
-    #data.to_csv('boehermann.csv', encoding='utf-8')
 
     # We construct lists with classified tweets:
     pos_tweets = [ tweet for index, tweet in enumerate(data['Tweets']) if data['SA'][index] > 0]
@@ -203,8 +253,15 @@ for dudes in zweiteliste:
     print("Percentage of neutral tweets: {}%".format(len(neu_tweets)*100/len(data['Tweets'])))
     print("Percentage de negative tweets: {}%".format(len(neg_tweets)*100/len(data['Tweets'])))
 
+
+    data2 = pd.DataFrame()
+
+    d = [[dudes, format(len(tweets)), format(len(pos_tweets)*100/len(data['Tweets'])), format(len(neu_tweets)*100/len(data['Tweets'])), format(len(neg_tweets)*100/len(data['Tweets'])) ]]
+    df = pd.DataFrame(d)
     #data2.append(data)
-    data.to_csv('boehermann.csv', header=False, encoding='utf-8', mode='a')
+    data.to_csv('erste_150_8.csv', header=False, encoding='utf-8', mode='a')
+    df.to_csv('erste_150_8_sentiment.csv', header=False, encoding='utf-8', mode='a')
+
     print("-------------")
     print("USER: "+ dudes + " FINISHED")
     print("-------------")
@@ -212,6 +269,5 @@ for dudes in zweiteliste:
     print("\n\n")
 
 
-#data2.to_csv('boehermann.csv', encoding='utf-8')
 print("---------------------------------")
 print("Everything written successfully!")
