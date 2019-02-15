@@ -15,7 +15,7 @@ api = tweepy.API(auth,wait_on_rate_limit=True)
 
 # Open/Create a file to append data
 # hier der name des output files
-search_keyword = 'fluechtlinge'
+search_keyword = 'reconquista germanica'
 csvFile = open(search_keyword + '.csv', 'a')
 #Use csv Writer
 #csvWriter = csv.writer(csvFile)
@@ -24,7 +24,7 @@ csvWriter = csv.writer(csvFile, delimiter=' ')
 # hier keywort, startdatum und sprache eingeben
 for tweet in tweepy.Cursor(api.search,q = search_keyword,
                            lang="de",
-                           since="2018-12-04").items():
+                           since="2018-01-01").items():
     #csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
     print (tweet.created_at, tweet.text)

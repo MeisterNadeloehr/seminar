@@ -52,9 +52,9 @@ extractor = twitter_setup()
 #max_tweets = 1000
 #tweets = [status for status in tweepy.Cursor(extractor.search, q=query).items(max_tweets)]
 
-tweets = tweepy.Cursor(extractor.search, q = "migrationspakt",
+tweets = tweepy.Cursor(extractor.search, q = "reconquista germanica",
                            lang="de",
-                           since="2018-12-12").items(500)
+                           since="2017-12-12").items(100000)
 
 data = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
 
@@ -74,7 +74,7 @@ display(data.head(10))
 
 
 # Create a Pandas Excel writer using XlsxWriter as the engine.
-writer = pd.ExcelWriter('migrationspakt.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('reconquista.xlsx', engine='xlsxwriter')
 # Convert the dataframe to an XlsxWriter Excel object.
 data.to_excel(writer, sheet_name="sheet1")
 
