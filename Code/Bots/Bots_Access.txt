@@ -1,0 +1,5 @@
+Gmail:		Seminar.bots@gmail.com			botsbotsbots
+
+Twitter:	seminar.bots+pauljonas@gmail.com	bots_Paul_Jonas_bots
+
+pythonanywhere:	semianr.bots@gmail.com			botsbotsbots
